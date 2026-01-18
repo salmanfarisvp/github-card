@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Card</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 GitHub Card</h1>
+        
+        <div class="input-section">
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    id="usernameInput" 
+                    placeholder="Enter GitHub username (e.g., salmanfarisvp)" 
+                    autocomplete="off"
+                >
+                <button class="fetch-btn" id="fetchBtn" onclick="fetchUserData()">Fetch Data</button>
+            </div>
+            <div id="successMessage" class="success-message"></div>
+        </div>
+
+        <div class="result-section" id="resultSection" style="display: none;">
+            <div class="view-toggle">
+                <button class="toggle-btn active" id="cardViewBtn" onclick="showView('card')">👤 Card View</button>
+                <button class="toggle-btn" id="jsonViewBtn" onclick="showView('json')">📄 JSON View</button>
+            </div>
+
+            <div id="cardViewContainer">
+                <div class="profile-card" id="profileCard"></div>
+            </div>
+
+            <div id="jsonViewContainer" style="display: none;">
+                <label class="result-label">GitHub User Data (JSON)</label>
+                <div class="data-display" id="dataDisplay"></div>
+                <button class="copy-btn" id="copyBtn" onclick="copyToClipboard()">📋 Copy JSON to Clipboard</button>
+            </div>
+        </div>
+
+        <div id="loadingSection" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Fetching data...</p>
+        </div>
+
+        <div id="errorSection"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
